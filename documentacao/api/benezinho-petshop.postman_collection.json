@@ -61,6 +61,83 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "PJ",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "privateKey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJDTElFTlRFIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2MDE1NzE3fQ.I759X7c1c9-CgfpBdI1pdDWoTUMPd-zAPbhvfNk0nmc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/pj",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"pj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PJ",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "privateKey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJDTElFTlRFIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2MDE1NzE3fQ.I759X7c1c9-CgfpBdI1pdDWoTUMPd-zAPbhvfNk0nmc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Benezinho Holding\",\r\n    \"nascimento\": \"2022-03-08\",\r\n    \"cnpj\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/pj",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"pj"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
