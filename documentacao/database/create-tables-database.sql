@@ -79,10 +79,10 @@ CREATE TABLE IF NOT EXISTS `tb_authority` (
   UNIQUE KEY `UK_NM_AUTHORITY` (`NM_AUTHORITY`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela benezinho-petshop.tb_authority: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela benezinho-petshop.tb_authority: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_authority` DISABLE KEYS */;
 INSERT IGNORE INTO `tb_authority` (`ID_AUTHORITY`, `NM_AUTHORITY`) VALUES
-	(1, 'cliente');
+	(1, 'CLIENTE');
 /*!40000 ALTER TABLE `tb_authority` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela benezinho-petshop.tb_authority_usuario
@@ -95,11 +95,10 @@ CREATE TABLE IF NOT EXISTS `tb_authority_usuario` (
   CONSTRAINT `FK_USER_AUTHORITY` FOREIGN KEY (`AUTHORITY`) REFERENCES `tb_authority` (`ID_AUTHORITY`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela benezinho-petshop.tb_authority_usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela benezinho-petshop.tb_authority_usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_authority_usuario` DISABLE KEYS */;
 INSERT IGNORE INTO `tb_authority_usuario` (`USUARIO`, `AUTHORITY`) VALUES
-	(1, 1),
-	(2, 1);
+	(1, 1);
 /*!40000 ALTER TABLE `tb_authority_usuario` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela benezinho-petshop.tb_pessoa
@@ -111,11 +110,11 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
   PRIMARY KEY (`ID_PESSOA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela benezinho-petshop.tb_pessoa: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela benezinho-petshop.tb_pessoa: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_pessoa` DISABLE KEYS */;
 INSERT IGNORE INTO `tb_pessoa` (`TP_PESSOA`, `ID_PESSOA`, `DT_NASCIMENTO`, `NM_PESSOA`) VALUES
-	('PF', 1, '1977-03-08', 'Davi Lucca'),
-	('PF', 2, '1977-03-08', 'Benefrancis');
+	('PF', 1, '1977-03-08', 'Benefrancis do Nascimento'),
+	('PJ', 2, '2022-03-08', 'Benezinho Holding');
 /*!40000 ALTER TABLE `tb_pessoa` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela benezinho-petshop.tb_pf
@@ -127,11 +126,10 @@ CREATE TABLE IF NOT EXISTS `tb_pf` (
   CONSTRAINT `FKo14w6uw4ru9105ls0g72jayei` FOREIGN KEY (`ID_PESSOA`) REFERENCES `tb_pessoa` (`ID_PESSOA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela benezinho-petshop.tb_pf: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela benezinho-petshop.tb_pf: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_pf` DISABLE KEYS */;
 INSERT IGNORE INTO `tb_pf` (`NR_CPF`, `ID_PESSOA`) VALUES
-	('123135465', 2),
-	('654654843516541654', 1);
+	('123456789', 1);
 /*!40000 ALTER TABLE `tb_pf` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela benezinho-petshop.tb_pj
@@ -145,6 +143,8 @@ CREATE TABLE IF NOT EXISTS `tb_pj` (
 
 -- Copiando dados para a tabela benezinho-petshop.tb_pj: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_pj` DISABLE KEYS */;
+INSERT IGNORE INTO `tb_pj` (`NR_CNPJ`, `ID_PESSOA`) VALUES
+	('123456789', 2);
 /*!40000 ALTER TABLE `tb_pj` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela benezinho-petshop.tb_user
@@ -159,11 +159,10 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   CONSTRAINT `FK_USER_PESSOA` FOREIGN KEY (`PESSOA`) REFERENCES `tb_pf` (`ID_PESSOA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Copiando dados para a tabela benezinho-petshop.tb_user: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela benezinho-petshop.tb_user: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tb_user` DISABLE KEYS */;
 INSERT IGNORE INTO `tb_user` (`ID_USUARIO`, `USER_PASSWORD`, `USER_EMAIL`, `PESSOA`) VALUES
-	(1, '$2a$12$.w3.vEzXVeY7oP7wCSUJzOdL.ApaAF5ZeL9cvkUNUodZo/HZ14wSW', 'davilucca@gmail.com', 1),
-	(2, '$2a$10$AnYtXXspAxGTf4hqyg3SKev5e9U9yWZdZC8VwFfLyz9expzuVmUFe', 'benefrancis@gmail.com', 2);
+	(1, '4813494D137E1631BBA301D5ACAB6E7BB7AA74CE1185D456565EF51D737677B2', 'benefrancis@gmail.com', 1);
 /*!40000 ALTER TABLE `tb_user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
