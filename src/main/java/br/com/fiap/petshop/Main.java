@@ -1,10 +1,9 @@
 package br.com.fiap.petshop;
 
-import br.com.fiap.petshop.infra.configuration.criptografia.UpdatableBCrypt;
-import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
-import br.com.fiap.petshop.infra.database.EntityManagerProvider;
 import br.com.fiap.petshop.infra.configuration.cors.CORSFilter;
 import br.com.fiap.petshop.infra.configuration.jwt.JsTokenFilterNeeded;
+import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
+import br.com.fiap.petshop.infra.database.EntityManagerProvider;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -33,7 +32,7 @@ public class Main {
         final ResourceConfig rc = new ResourceConfig()
                 // Configure container response filters (CORSFilter)
                 .register(CORSFilter.class)
-                .register( UpdatableBCrypt.build(10))
+                // .register( UpdatableBCrypt.build(10))
                 // Configure container request filters (JsTokenFilterNeeded)
                 .register(JsTokenFilterNeeded.class)
                 .register(

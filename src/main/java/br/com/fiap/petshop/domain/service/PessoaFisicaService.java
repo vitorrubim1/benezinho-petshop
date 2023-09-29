@@ -2,7 +2,7 @@ package br.com.fiap.petshop.domain.service;
 
 import br.com.fiap.petshop.domain.entity.PessoaFisica;
 import br.com.fiap.petshop.domain.repository.PessoaFisicaRepository;
-import br.com.fiap.petshop.infra.configuration.criptografia.UpdatableBCrypt;
+import br.com.fiap.petshop.infra.configuration.criptografia.Password;
 import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -56,24 +56,11 @@ public class PessoaFisicaService implements Service<PessoaFisica, Long> {
 
     @Override
     public PessoaFisica persist(PessoaFisica pessoa) {
-        UpdatableBCrypt passwordEncoder = UpdatableBCrypt.build(12);
         if (Objects.isNull(pessoa) || Objects.isNull(pessoa.getUsuario())) return null;
-
-
-        var pass = passwordEncoder.hash(pessoa.getUsuario().getPassword());
-
-        var verifica = passwordEncoder.verifyHash(pessoa.getUsuario().getPassword(), pass);
-
-
+        var pass = Password.encoder(pessoa.getUsuario().getPassword());
         pessoa.getUsuario().setPassword(pass);
         pessoa.getUsuario().setPessoa(pessoa);
-
-        System.out.println(pessoa);
-
         PessoaFisica persisted = repo.persist(pessoa);
-
-        System.out.println(persisted);
-
         return persisted;
     }
 }

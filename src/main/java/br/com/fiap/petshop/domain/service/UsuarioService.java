@@ -4,7 +4,7 @@ import br.com.fiap.petshop.domain.dto.AuthorizationDTO;
 import br.com.fiap.petshop.domain.entity.Usuario;
 import br.com.fiap.petshop.domain.repository.PessoaFisicaRepository;
 import br.com.fiap.petshop.domain.repository.UsuarioRepository;
-import br.com.fiap.petshop.infra.configuration.criptografia.UpdatableBCrypt;
+import br.com.fiap.petshop.infra.configuration.criptografia.Password;
 import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -41,14 +41,9 @@ public class UsuarioService implements Service<Usuario, Long> {
     }
 
     public Usuario autenticar(AuthorizationDTO dto) {
-        UpdatableBCrypt passwordEncoder = UpdatableBCrypt.build(12);
         Usuario a = repo.findByUsername(dto.username());
-
         var pass = dto.password();
-        var teste = a.getPassword();
-
-        boolean autenticado = passwordEncoder.verifyHash(pass, teste);
-
+        boolean autenticado = Password.check(pass, a.getPassword());
         if (Objects.nonNull(a) && autenticado) {
             return a;
         }

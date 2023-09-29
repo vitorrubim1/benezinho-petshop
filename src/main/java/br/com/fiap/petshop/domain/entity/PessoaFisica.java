@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "TB_PF", uniqueConstraints = {
-        @UniqueConstraint( name = "UK_PF_CPF", columnNames = "NR_CPF")
+        @UniqueConstraint(name = "UK_PF_CPF", columnNames = "NR_CPF")
 })
 @DiscriminatorValue("PF")
 public class PessoaFisica extends Pessoa {
@@ -14,7 +14,7 @@ public class PessoaFisica extends Pessoa {
     @Column(name = "NR_CPF", nullable = false)
     private String cpf;
 
-    @OneToOne(mappedBy = "pessoa", fetch =  FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(mappedBy = "pessoa", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Usuario usuario;
 
     public PessoaFisica() {

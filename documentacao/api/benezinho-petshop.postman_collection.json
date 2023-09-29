@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "136d5b0f-8a7a-4897-8e7e-1127811cfb2e",
+		"name": "benezinho-petshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1524675"
+	},
+	"item": [
+		{
+			"name": "authorization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"benefrancis@gmail.com\",\r\n    \"password\":\"root\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Benefrancis do Nascimento\",\r\n    \"nascimento\": \"1977-03-08\",\r\n    \"cpf\": \"123456789\",\r\n    \"usuario\": {\r\n        \"username\": \"benefrancis@gmail.com\",\r\n        \"password\": \"root\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/pf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"pf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

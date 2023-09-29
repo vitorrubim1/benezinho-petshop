@@ -4,7 +4,6 @@ import br.com.fiap.petshop.Main;
 import br.com.fiap.petshop.domain.dto.PessoaFisicaDTO;
 import br.com.fiap.petshop.domain.entity.PessoaFisica;
 import br.com.fiap.petshop.domain.service.PessoaFisicaService;
-import br.com.fiap.petshop.infra.configuration.jwt.JsonTokenNeeded;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
