@@ -3,6 +3,7 @@ package br.com.fiap.petshop.domain.entity.animal;
 import br.com.fiap.petshop.domain.entity.Sexo;
 import br.com.fiap.petshop.domain.entity.servico.Servico;
 import br.com.fiap.petshop.infra.security.entity.Pessoa;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -10,17 +11,50 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "TB_ANIMAL")
 public abstract class Animal {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ANIMAL")
+    @SequenceGenerator(name = "SQ_ANIMAL", sequenceName = "SQ_ANIMAL", allocationSize = 1, initialValue = 1)
+    @Column(name = "ID_ANIMAL")
     private Long id;
+
+    @Column(name = "NOME")
     private String nome;
+
+    @Column(name = "SEXO")
     private Sexo sexo;
+
+    @Column(name = "DT_NASCIMENTO")
     private LocalDate nascimento;
+    @Column(name = "RACA")
     private String raca;
+
+    @Column(name = "DESCRICAO")
     private String descricao;
+
+    @Column(name = "OBSERVACAO")
     private String observacao;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "dono",
+            referencedColumnName = "ID_PESSOA",
+            foreignKey = @ForeignKey(name = "FK_ANIMAL_DONO")
+    )
     private Pessoa dono;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "TB_ANIMAL_SERVICO",
+            joinColumns = {
+                    @JoinColumn(name = "ANIMAL", referencedColumnName = "ID_ANIMAL", foreignKey = @ForeignKey(name = "FK_ANIMAL_SERVICO"))
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "SERVICO", referencedColumnName = "ID_SERVICO", foreignKey = @ForeignKey(name = "FK_SERVICO_ANIMAL"))
+            }
+    )
     private Set<Servico> servicos = new LinkedHashSet<>();
 
     public Animal() {
@@ -40,13 +74,11 @@ public abstract class Animal {
 
     public Animal adicionaServico(Servico s) {
         this.servicos.add( s );
-        s.setAnimal( this );
         return this;
     }
 
     public Animal removeaServico(Servico s) {
         this.servicos.remove( s );
-        if (s.getAnimal().equals( this )) s.setAnimal( null );
         return this;
     }
 

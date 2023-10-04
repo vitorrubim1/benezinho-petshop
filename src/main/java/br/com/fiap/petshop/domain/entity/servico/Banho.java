@@ -9,8 +9,8 @@ public class Banho extends Servico{
     public Banho() {
     }
 
-    public Banho(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
-        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao, animal);
+    public Banho(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao) {
+        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao);
     }
 
     @Override

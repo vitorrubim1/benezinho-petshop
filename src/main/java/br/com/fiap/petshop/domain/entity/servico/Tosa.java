@@ -9,8 +9,8 @@ public class Tosa extends Servico {
     public Tosa() {
     }
 
-    public Tosa(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
-        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao, animal);
+    public Tosa(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao) {
+        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao);
     }
 
     @Override

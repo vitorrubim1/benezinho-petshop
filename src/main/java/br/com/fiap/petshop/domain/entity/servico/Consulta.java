@@ -9,8 +9,8 @@ public class Consulta extends Servico {
     public Consulta() {
     }
 
-    public Consulta(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
-        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao, animal);
+    public Consulta(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao) {
+        super(id, valor, abertura, autorizacao, conclusao, descricao, observacao);
     }
 
     @Override

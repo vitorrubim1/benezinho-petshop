@@ -1,32 +1,42 @@
 package br.com.fiap.petshop.domain.entity.servico;
 
 import br.com.fiap.petshop.domain.entity.animal.Animal;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "TB_SERVICO")
 public abstract class Servico {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_SERVICO")
+    @SequenceGenerator(name = "SQ_SERVICO", sequenceName = "SQ_SERVICO", allocationSize = 1, initialValue = 1)
+    @Column(name = "ID_SERVICO")
     private Long id;
 
+    @Column(name = "VALOR")
     private BigDecimal valor;
 
+    @Column(name = "ABERTURA")
     private LocalDateTime abertura;
 
+    @Column(name = "AUTORIZACAO")
     private LocalDateTime autorizacao;
 
+    @Column(name = "CONCLUSAO")
     private LocalDateTime conclusao;
 
+    @Column(name = "DESCRICAO")
     private String descricao;
 
+    @Column(name = "OBSERVACAO")
     private String observacao;
-
-    private Animal animal;
 
     public Servico() {
     }
 
-    public Servico(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
+    public Servico(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao) {
         this.id = id;
         this.valor = valor;
         this.abertura = abertura;
@@ -34,7 +44,6 @@ public abstract class Servico {
         this.conclusao = conclusao;
         this.descricao = descricao;
         this.observacao = observacao;
-        this.animal = animal;
     }
 
     public Long getId() {
@@ -45,8 +54,6 @@ public abstract class Servico {
         this.id = id;
         return this;
     }
-
-
 
     public BigDecimal getValor() {
         return valor;
@@ -102,16 +109,6 @@ public abstract class Servico {
         return this;
     }
 
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public Servico setAnimal(Animal animal) {
-        this.animal = animal;
-        return this;
-    }
-
-
     @Override
     public String toString() {
         return "Servico{" +
@@ -122,7 +119,6 @@ public abstract class Servico {
                 ", conclusao=" + conclusao +
                 ", descricao='" + descricao + '\'' +
                 ", observacao='" + observacao + '\'' +
-                ", animal=" + animal +
                 '}';
     }
 }
