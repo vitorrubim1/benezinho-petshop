@@ -7,7 +7,7 @@ CHECKPOINT - Enterprise Application Development aplicado em 04/10/2023.
 |------------------------------------------|----------------------------------------|
 | **ALUNO:**                               | **TURMA:** 2TDSPR  - 2TDSPT            |
 | **PROFESSOR:** Benefrancis do Nascimento | 04/10/2023                             |
-| **Checkpoint**                           | **VALE 1 PONTO**                       |
+| **Checkpoint**                           |                      |
 
 # Sumário
 

@@ -4,7 +4,7 @@ import br.com.fiap.petshop.infra.security.entity.Pessoa;
 
 public class Telefone {
 
-    private int id;
+    private Long id;
 
     private int ddd;
 
@@ -22,7 +22,7 @@ public class Telefone {
         this.pessoa = pessoa;
     }
 
-    public Telefone(int idTelefone, int ddd, String numero, Pessoa pessoa) {
+    public Telefone(Long idTelefone, int ddd, String numero, Pessoa pessoa) {
         this.id = idTelefone;
         this.ddd = ddd;
         this.numero = numero;
@@ -30,11 +30,11 @@ public class Telefone {
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public Telefone setId(int id) {
+    public Telefone setId(Long id) {
         this.id = id;
         return this;
     }
