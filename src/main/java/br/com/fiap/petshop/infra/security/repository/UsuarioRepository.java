@@ -1,6 +1,6 @@
-package br.com.fiap.petshop.domain.repository;
+package br.com.fiap.petshop.infra.security.repository;
 
-import br.com.fiap.petshop.domain.entity.Usuario;
+import br.com.fiap.petshop.infra.security.entity.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -35,7 +35,6 @@ public class UsuarioRepository implements Repository<Usuario, Long> {
         Usuario usuario = (Usuario) query.getSingleResult();
         return usuario;
     }
-
 
     @Override
     public List<Usuario> findAll() {

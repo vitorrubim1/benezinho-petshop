@@ -1,13 +1,9 @@
-package br.com.fiap.petshop.domain.dto;
+package br.com.fiap.petshop.infra.security.dto;
 
-import br.com.fiap.petshop.domain.entity.Authority;
-import br.com.fiap.petshop.domain.entity.PessoaFisica;
-import br.com.fiap.petshop.domain.entity.Usuario;
-import jakarta.validation.constraints.NotNull;
+import br.com.fiap.petshop.infra.security.entity.PessoaFisica;
 import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 public record PessoaFisicaDTO(
         Long id,

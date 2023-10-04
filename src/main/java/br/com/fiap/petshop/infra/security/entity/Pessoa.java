@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.entity;
+package br.com.fiap.petshop.infra.security.entity;
 
 import jakarta.persistence.*;
 
@@ -12,6 +12,7 @@ public abstract class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PESSOA")
+    @SequenceGenerator( name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "ID_PESSOA")
     private Long id;
 

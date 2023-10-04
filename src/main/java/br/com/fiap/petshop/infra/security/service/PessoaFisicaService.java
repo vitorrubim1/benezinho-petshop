@@ -1,9 +1,9 @@
-package br.com.fiap.petshop.domain.service;
+package br.com.fiap.petshop.infra.security.service;
 
-import br.com.fiap.petshop.domain.entity.PessoaFisica;
-import br.com.fiap.petshop.domain.repository.PessoaFisicaRepository;
 import br.com.fiap.petshop.infra.configuration.criptografia.Password;
 import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
+import br.com.fiap.petshop.infra.security.entity.PessoaFisica;
+import br.com.fiap.petshop.infra.security.repository.PessoaFisicaRepository;
 import jakarta.persistence.EntityManagerFactory;
 
 import java.util.List;

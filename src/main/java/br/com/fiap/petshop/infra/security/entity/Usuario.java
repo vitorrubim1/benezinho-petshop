@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.entity;
+package br.com.fiap.petshop.infra.security.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -16,6 +16,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")
+    @SequenceGenerator( name = "SQ_USER", sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1)
     @Column(name = "ID_USUARIO")
     private Long id;
 
@@ -23,7 +24,7 @@ public class Usuario {
     @Column(name = "USER_EMAIL", nullable = false)
     private String username;
 
-    @Column(name = "USER_PASSWORD", nullable = false) //$2a$10$YHNjErKI5lLElWr9T0HW2.QGVrYOe2II4AShtKpmzfLIqSU0p5eJG
+    @Column(name = "USER_PASSWORD", nullable = false)
     private String password;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})

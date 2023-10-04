@@ -22,7 +22,8 @@ import java.net.URI;
 public class Main {
     public static final String BASE_URI = "http://localhost/api/";
 
-    public static final String PERSISTENCE_UNIT = "maria-db";
+    public static final String PERSISTENCE_UNIT = "oracle";
+
     @PersistenceContext
     static EntityManager manager;
 
@@ -48,7 +49,7 @@ public class Main {
                             }
                         }
                 ).register(EntityManagerFactoryProvider.of(PERSISTENCE_UNIT).provide())
-                .packages("br.com.fiap.petshop.domain.resources");
+                .packages("br.com.fiap.petshop.domain.resources", "br.com.fiap.petshop.infra.security.resources");
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 

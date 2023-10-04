@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.resources;
+package br.com.fiap.petshop.infra.security.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -10,9 +10,14 @@ import org.jvnet.hk2.annotations.Contract;
 @Contract
 public interface Resource<T, U> {
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Response findAll();
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Response findById(U id);
 
+    @POST
     public Response persist(T t);
 }

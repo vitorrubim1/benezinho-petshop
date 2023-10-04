@@ -25,11 +25,9 @@ public class JsTokenFilterNeeded implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) {
 
-
         String path = requestContext.getUriInfo().getPath();
 
-        if (path.equals( AUTHORIZATION_SERVICE_PATH ))
-            return;
+        if (path.equals( AUTHORIZATION_SERVICE_PATH )) return;
 
         String privateKeyHeaderValue = requestContext.getHeaderString( PRIVATE_KEY );
         if (privateKeyHeaderValue == null || privateKeyHeaderValue.isEmpty()) {

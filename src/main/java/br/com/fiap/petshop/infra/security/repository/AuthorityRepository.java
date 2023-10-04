@@ -1,6 +1,6 @@
-package br.com.fiap.petshop.domain.repository;
+package br.com.fiap.petshop.infra.security.repository;
 
-import br.com.fiap.petshop.domain.entity.Authority;
+import br.com.fiap.petshop.infra.security.entity.Authority;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 

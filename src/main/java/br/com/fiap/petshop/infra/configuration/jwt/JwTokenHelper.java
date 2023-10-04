@@ -1,14 +1,17 @@
 package br.com.fiap.petshop.infra.configuration.jwt;
 
-import br.com.fiap.petshop.domain.entity.Authority;
-import br.com.fiap.petshop.domain.entity.Pessoa;
-import br.com.fiap.petshop.domain.entity.Usuario;
-import io.jsonwebtoken.*;
+import br.com.fiap.petshop.infra.security.entity.Usuario;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 
 import javax.crypto.SecretKey;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 //https://github.com/jwtk/jjwt#understanding-jjwt-dependencies

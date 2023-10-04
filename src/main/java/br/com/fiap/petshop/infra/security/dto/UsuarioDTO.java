@@ -1,15 +1,12 @@
-package br.com.fiap.petshop.domain.dto;
+package br.com.fiap.petshop.infra.security.dto;
 
-import br.com.fiap.petshop.domain.entity.Authority;
-import br.com.fiap.petshop.domain.entity.Pessoa;
-import br.com.fiap.petshop.domain.entity.PessoaFisica;
-import br.com.fiap.petshop.domain.entity.Usuario;
-import jakarta.validation.Valid;
+import br.com.fiap.petshop.infra.security.entity.Authority;
+import br.com.fiap.petshop.infra.security.entity.PessoaFisica;
+import br.com.fiap.petshop.infra.security.entity.Usuario;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -42,6 +39,7 @@ public record UsuarioDTO(
      * @return
      */
     public static UsuarioDTO of(Usuario p, String key) {
+        if (Objects.isNull( p )) return null;
         return new UsuarioDTO(p.getId(), p.getUsername(), "", p.getPessoa().getId(), key, p.getAuthorities());
     }
 
@@ -52,6 +50,7 @@ public record UsuarioDTO(
      * @return
      */
     public static UsuarioDTO of(Usuario p) {
+        if (Objects.isNull( p )) return null;
         return new UsuarioDTO(
                 p.getId(),
                 p.getUsername(),
@@ -68,6 +67,7 @@ public record UsuarioDTO(
      * @return
      */
     public static Usuario of(UsuarioDTO p) {
+        if (Objects.isNull( p )) return null;
         var pf = new PessoaFisica();
         pf.setId(p.pessoa);
         return new Usuario(p.id, p.username, p.password, pf, p.authorities);

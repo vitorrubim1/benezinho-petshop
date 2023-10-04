@@ -1,6 +1,6 @@
-package br.com.fiap.petshop.domain.repository;
+package br.com.fiap.petshop.infra.security.repository;
 
-import br.com.fiap.petshop.domain.entity.PessoaJuridica;
+import br.com.fiap.petshop.infra.security.entity.PessoaJuridica;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -18,11 +18,11 @@ public class PessoaJuridicaRepository implements Repository<PessoaJuridica, Long
 
     public static PessoaJuridicaRepository build(EntityManager manager) {
         PessoaJuridicaRepository result = instance;
-        if (Objects.nonNull( result )) return result;
+        if (Objects.nonNull(result)) return result;
 
         synchronized (PessoaJuridicaRepository.class) {
-            if (Objects.isNull( instance )) {
-                instance = new PessoaJuridicaRepository( manager );
+            if (Objects.isNull(instance)) {
+                instance = new PessoaJuridicaRepository(manager);
             }
             return instance;
         }
@@ -31,21 +31,21 @@ public class PessoaJuridicaRepository implements Repository<PessoaJuridica, Long
 
     @Override
     public List<PessoaJuridica> findAll() {
-        List<PessoaJuridica> list = manager.createQuery( "FROM PessoaJuridica" ).getResultList();
+        List<PessoaJuridica> list = manager.createQuery("FROM PessoaJuridica").getResultList();
         return list;
     }
 
     @Override
     public PessoaJuridica findById(Long id) {
-        PessoaJuridica pessoa = manager.find( PessoaJuridica.class, id );
+        PessoaJuridica pessoa = manager.find(PessoaJuridica.class, id);
         return pessoa;
     }
 
     @Override
     public List<PessoaJuridica> findByName(String texto) {
         String jpql = "SELECT p FROM PessoaJuridica p  where lower(p.nome) LIKE CONCAT('%',lower(:nome),'%')";
-        Query query = manager.createQuery( jpql );
-        query.setParameter( "nome", texto );
+        Query query = manager.createQuery(jpql);
+        query.setParameter("nome", texto);
         List<PessoaJuridica> list = query.getResultList();
         return list;
     }
@@ -53,7 +53,7 @@ public class PessoaJuridicaRepository implements Repository<PessoaJuridica, Long
     @Override
     public PessoaJuridica persist(PessoaJuridica pessoa) {
         manager.getTransaction().begin();
-        manager.persist( pessoa );
+        manager.persist(pessoa);
         manager.getTransaction().commit();
         return pessoa;
     }

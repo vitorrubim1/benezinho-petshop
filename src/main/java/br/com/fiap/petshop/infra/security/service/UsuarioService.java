@@ -1,11 +1,11 @@
-package br.com.fiap.petshop.domain.service;
+package br.com.fiap.petshop.infra.security.service;
 
-import br.com.fiap.petshop.domain.dto.AuthorizationDTO;
-import br.com.fiap.petshop.domain.entity.Usuario;
-import br.com.fiap.petshop.domain.repository.PessoaFisicaRepository;
-import br.com.fiap.petshop.domain.repository.UsuarioRepository;
 import br.com.fiap.petshop.infra.configuration.criptografia.Password;
 import br.com.fiap.petshop.infra.database.EntityManagerFactoryProvider;
+import br.com.fiap.petshop.infra.security.dto.AuthorizationDTO;
+import br.com.fiap.petshop.infra.security.entity.Usuario;
+import br.com.fiap.petshop.infra.security.repository.PessoaFisicaRepository;
+import br.com.fiap.petshop.infra.security.repository.UsuarioRepository;
 import jakarta.persistence.EntityManagerFactory;
 
 import java.util.List;

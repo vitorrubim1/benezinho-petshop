@@ -15,4 +15,6 @@ public interface Repository<T, U> {
 
     public T persist(T t);
 
+    public T update(T t);
+
 }

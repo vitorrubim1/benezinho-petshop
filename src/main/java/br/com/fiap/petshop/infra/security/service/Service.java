@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.service;
+package br.com.fiap.petshop.infra.security.service;
 
 import org.jvnet.hk2.annotations.Contract;
 
@@ -14,7 +14,5 @@ public interface Service<T, U> {
     public List<T> findByName(String texto);
 
     public T persist(T t);
-
-    public T update(U id, T t);
 
 }

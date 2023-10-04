@@ -8,7 +8,7 @@ public class AuthorizationResponse extends BaseResponse {
     }
 
     public AuthorizationResponse(int status, String message, String privateKey) {
-        super(message, status);
+        super( message, status );
         this.privateKey = privateKey;
     }
 

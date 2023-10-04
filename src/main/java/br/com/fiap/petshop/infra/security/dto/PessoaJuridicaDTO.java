@@ -1,6 +1,6 @@
-package br.com.fiap.petshop.domain.dto;
+package br.com.fiap.petshop.infra.security.dto;
 
-import br.com.fiap.petshop.domain.entity.PessoaJuridica;
+import br.com.fiap.petshop.infra.security.entity.PessoaJuridica;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 

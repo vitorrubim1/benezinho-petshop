@@ -26,18 +26,18 @@ public class Password {
         MessageDigest algorithm = null;
         StringBuilder hexPass = new StringBuilder();
         try {
-            algorithm = MessageDigest.getInstance("SHA-256");
-            byte messageDigestPass[] = algorithm.digest(pass.getBytes("UTF-8"));
+            algorithm = MessageDigest.getInstance( "SHA-256" );
+            byte messageDigestPass[] = algorithm.digest( pass.getBytes( "UTF-8" ) );
 
             //Transformando em hexadecimal
             for (byte b : messageDigestPass) {
-                hexPass.append(String.format("%02X", 0xFF & b));
+                hexPass.append( String.format( "%02X", 0xFF & b ) );
             }
 
         } catch (NoSuchAlgorithmException e) {
-            System.err.println("Não foi possível utilizar o algoritmo" + algorithm.getAlgorithm() + ":\n" + e.getMessage());
+            System.err.println( "Não foi possível utilizar o algoritmo" + algorithm.getAlgorithm() + ":\n" + e.getMessage() );
         } catch (UnsupportedEncodingException e) {
-            System.err.println("Não foi possível fazer o encoding para UTF-8:\n" + e.getMessage());
+            System.err.println( "Não foi possível fazer o encoding para UTF-8:\n" + e.getMessage() );
         }
 
         return hexPass.toString();
@@ -52,9 +52,9 @@ public class Password {
      */
     public static boolean check(String pass, String hash) {
 
-        String v = encoder(pass);
+        String v = encoder( pass );
 
-        return v.equals(hash);
+        return v.equals( hash );
     }
     //TODO: Implante essa melhoria: https://dzone.com/articles/spring-boot-custom-password-validator-using-passay
 }

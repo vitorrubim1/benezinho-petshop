@@ -1,7 +1,6 @@
-package br.com.fiap.petshop.domain.dto;
+package br.com.fiap.petshop.infra.security.dto;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

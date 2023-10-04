@@ -1,12 +1,11 @@
-package br.com.fiap.petshop.domain.resources;
+package br.com.fiap.petshop.infra.security.resources;
 
 import br.com.fiap.petshop.Main;
-import br.com.fiap.petshop.domain.dto.AuthorizationDTO;
-
-import br.com.fiap.petshop.domain.dto.UsuarioDTO;
-import br.com.fiap.petshop.domain.entity.Usuario;
-import br.com.fiap.petshop.domain.service.UsuarioService;
 import br.com.fiap.petshop.infra.configuration.jwt.JwTokenHelper;
+import br.com.fiap.petshop.infra.security.dto.AuthorizationDTO;
+import br.com.fiap.petshop.infra.security.dto.UsuarioDTO;
+import br.com.fiap.petshop.infra.security.entity.Usuario;
+import br.com.fiap.petshop.infra.security.service.UsuarioService;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;

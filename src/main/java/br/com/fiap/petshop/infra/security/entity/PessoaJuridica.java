@@ -1,6 +1,7 @@
-package br.com.fiap.petshop.domain.entity;
+package br.com.fiap.petshop.infra.security.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,8 @@ import java.time.LocalDate;
 @DiscriminatorValue("PJ")
 public class PessoaJuridica extends Pessoa {
 
-    @Column(name = "NR_CNPJ")
+    @CNPJ
+    @Column(name = "NR_CNPJ", nullable = false)
     private String cnpj;
 
     public PessoaJuridica() {

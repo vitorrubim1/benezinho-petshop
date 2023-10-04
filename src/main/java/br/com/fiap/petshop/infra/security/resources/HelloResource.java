@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.resources;
+package br.com.fiap.petshop.infra.security.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

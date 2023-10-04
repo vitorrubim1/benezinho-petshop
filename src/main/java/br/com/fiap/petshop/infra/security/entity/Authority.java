@@ -1,4 +1,4 @@
-package br.com.fiap.petshop.domain.entity;
+package br.com.fiap.petshop.infra.security.entity;
 
 
 import jakarta.persistence.*;
@@ -14,6 +14,7 @@ public class Authority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AUTHORITY")
+    @SequenceGenerator( name = "SQ_AUTHORITY", sequenceName = "SQ_AUTHORITY", allocationSize = 1, initialValue = 1)
     @Column(name = "ID_AUTHORITY")
     private Long id;
 
