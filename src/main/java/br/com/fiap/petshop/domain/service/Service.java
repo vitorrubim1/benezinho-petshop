@@ -17,4 +17,6 @@ public interface Service<T, U> {
 
     public T update(U id, T t);
 
+    public boolean delete(T t);
+
 }

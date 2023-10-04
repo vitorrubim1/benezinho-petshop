@@ -15,4 +15,9 @@ public interface Resource<T, U> {
     public Response findById(U id);
 
     public Response persist(T t);
+
+    public Response update(U id, T t);
+
+    public Response delete(T t);
+
 }

@@ -17,4 +17,6 @@ public interface Repository<T, U> {
 
     public T update(T t);
 
+    public boolean delete(T t);
+
 }

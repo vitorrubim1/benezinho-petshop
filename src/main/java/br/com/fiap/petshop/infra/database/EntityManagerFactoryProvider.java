@@ -55,7 +55,7 @@ public class EntityManagerFactoryProvider implements Factory<EntityManagerFactor
 
         for (String chave : env.keySet()) {
 
-            if (Main.PERSISTENCE_UNIT.equals( "oracle" )) {
+            if (Main.PERSISTENCE_UNIT.equals( "oracle-fiap" )) {
 
                 if (chave.contains( "USER_FIAP" )) {
                     properties.put( "jakarta.persistence.jdbc.user", env.get( chave ) );
