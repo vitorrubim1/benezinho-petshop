@@ -11,7 +11,7 @@ public interface Repository<T, U> {
 
     public T findById(U id);
 
-    public List<T> findByName(String texto);
+    public List<T> findByTexto(String texto);
 
     public T persist(T t);
 

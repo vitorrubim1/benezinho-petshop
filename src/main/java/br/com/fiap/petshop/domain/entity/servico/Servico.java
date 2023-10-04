@@ -9,8 +9,6 @@ public abstract class Servico {
 
     private Long id;
 
-    private String nome;
-
     private BigDecimal valor;
 
     private LocalDateTime abertura;
@@ -28,9 +26,8 @@ public abstract class Servico {
     public Servico() {
     }
 
-    public Servico(Long id, String nome, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
+    public Servico(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
         this.id = id;
-        this.nome = nome;
         this.valor = valor;
         this.abertura = abertura;
         this.autorizacao = autorizacao;
@@ -49,14 +46,7 @@ public abstract class Servico {
         return this;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public Servico setNome(String nome) {
-        this.nome = nome;
-        return this;
-    }
 
     public BigDecimal getValor() {
         return valor;
@@ -126,7 +116,6 @@ public abstract class Servico {
     public String toString() {
         return "Servico{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
                 ", valor=" + valor +
                 ", abertura=" + abertura +
                 ", autorizacao=" + autorizacao +
