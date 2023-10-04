@@ -88,7 +88,7 @@ Caso o github esteja indisponível, você deverá pegar o projeto no diretório 
    1. Existe relacionamento **Muitos para Um** entre Telefone e Pessoa no atributo pessoa.
 
 
-1. **(2 Pontos)** Implementar corretamente (desejável a utilização do padrão Singleton) as classes que devem implementar a interface genérica **Repository** 
+1. **(2 Pontos)** Implementar corretamente os métodos das classes que devem implementar a interface genérica **Repository** 
 
    Deverá implementar:
 
